@@ -8,7 +8,7 @@ handleEcho "The current branch is $CI_COMMIT_REF_NAME !"
 
 folder=$(pwd)
 env=$CI_COMMIT_REF_NAME
-source=/home/gitlab-runner
+source=/data
 single=$source/website
 tangible=$single/$project
 cache=$tangible/$env
@@ -41,7 +41,7 @@ function handleInstall() {
 }
 
 function handleModules() {
-  ln -s $1/node_modules $2/node_modules
+	ln -s $1/node_modules $2/node_modules
 }
 
 handleEcho "start npm install"
