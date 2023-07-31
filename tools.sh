@@ -15,9 +15,10 @@ function handleCommand() {
 function handleCallback() {
   if [ $? -eq 0 ]; then
     handleEcho "$1"
+    sendNotice "Successful operation\nProject: $CI_PROJECT_NAME\nEnv: $CI_ENVIRONMENT_NAME\nStage: $CI_JOB_STAGE\nCreated By: $GITLAB_USER_NAME\nStatus: deploy success\nLink: $CI_PIPELINE_URL\nMessage: $CI_COMMIT_MESSAGE"
   else
     handleEcho "$2"
-    sendNotice "Errors and Warnings\nProject: $CI_PROJECT_NAME\nEnv: $CI_ENVIRONMENT_NAME\nStage: $CI_JOB_STAGE\nCreated By: $GITLAB_USER_NAME\nStatus: catching error\nLink: $CI_PIPELINE_URL\nMessage: $2"
+    sendNotice "Errors and Warnings\nProject: $CI_PROJECT_NAME\nEnv: $CI_ENVIRONMENT_NAME\nStage: $CI_JOB_STAGE\nCreated By: $GITLAB_USER_NAME\nStatus: catching error\nLink: $CI_PIPELINE_URL\nMessage: $CI_COMMIT_MESSAGE"
     exit 1
   fi
 }

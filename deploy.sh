@@ -20,7 +20,6 @@ function handleDeploy() {
   done
   wait
   handleCallback "deploy $hostList success" "deploy $hostList failed"
-  sendNotice "Successful operation\nProject: $CI_PROJECT_NAME\nEnv: $CI_ENVIRONMENT_NAME\nStage: $CI_JOB_STAGE\nCreated By: $GITLAB_USER_NAME\nStatus: deploy success\nLink: $CI_PIPELINE_URL\nMessage: $CI_COMMIT_MESSAGE"
   handleEcho "Calling dingtalk success"
 }
 
